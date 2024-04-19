@@ -1,0 +1,28 @@
+class Node:
+    def __init__(self,data):
+        self.data = data
+        self.next = None
+
+def InsertAtEnd(head,ele):
+    new = Node(ele)
+    if head == None:
+        return new
+    cur = head
+    while cur.next!=None:
+        cur = cur.next
+    cur.next = new
+    return head
+
+def printDetails(head):
+    cur = head
+    while cur!=None:
+        print(cur.data,end=" ")
+        cur = cur.next
+
+num = int(input())
+elements = list(map(int, input().split()))
+
+head = None
+for ele in elements:
+    head = InsertAtEnd(head,ele)
+printDetails(head)
