@@ -1,0 +1,25 @@
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next = None
+        
+def insertNodeAtHead(llist, data):
+    # Write your code here
+    new = SinglyLinkedListNode(data)
+    if llist == None:
+        return new
+    new.next = llist
+    return new
+
+def printDetail(head):
+    curr=head
+    while curr!=None:
+        print(curr.data,end="-->")
+        curr=curr.next
+    print("None")
+
+l = [10,20,30,50,60,70]
+head = None
+for ele in l:
+    head = insertAtEnd(head,ele)
+printDetail(head)
