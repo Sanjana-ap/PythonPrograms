@@ -1,0 +1,47 @@
+SinglyLinkedListNode:
+     int data
+     SinglyLinkedListNode next
+def insertNodeAtTail(llist_head,llist_item):
+    new = SinglyLinkedListNode(llist_item)
+    if llist_head == None:
+        return new
+    cur = llist_head
+    while cur.next!=None:
+        cur = cur.next
+    cur.next = new
+    return llist_head
+ class SinglyLinkedListNode:
+     def __init__(self,node_data):
+         self.data = node_data
+         self.next = None
+
+ def insertNodeAtPosition(llist, data, position):
+    new=SinglyLinkedListNode(data)
+    if position == 1:
+        new.next = llist
+        return new
+    index = 0
+    curr = llist
+    while index != position-1:
+        curr = curr.next
+        index += 1
+    new.next = curr.next
+    curr.next = new
+    return llist
+
+
+ def printDetails(head):
+     cur = head
+     while cur!=None:
+         print(cur.data)
+         cur = cur.next
+
+ lst = []
+ n = int(input())
+ for i in range(1, n+1):
+     ele = int(input())
+     lst.append(ele) 
+ head = None
+ for ele in lst:
+     head = InsertAtEnd(head,ele)
+ printDetails(head)
