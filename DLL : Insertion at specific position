@@ -1,0 +1,63 @@
+class Node:
+    def __init__(self,data):
+        self.data = data
+        self.next = None
+        self.prev=None
+
+def addNodeAtTailOfLinkedList(head, ele):
+    newBlock = Node(ele)
+    if head == None:
+        return newBlock
+    tail = head 
+    while tail.next != None:
+        tail = tail.next 
+    tail.next = newBlock 
+    newBlock.prev = tail 
+    return head
+
+def insertAtSpecific(head,position,m):
+    newBlock = Node(m)
+    if position == 1:
+        return None
+    index = 1
+    cur = head
+    while index != position -1:
+        cur = cur.next
+        index += 1
+    nextNode = cur.next
+    newBlock.next = nextNode
+    nextNode.prev = newBlock
+    cur.next = newBlock
+    newBlock.prev = cur
+    return head
+
+def printLeftRight(head):
+    cur = head
+    while cur != None:
+        print(cur.data,end=" ")
+        cur = cur.next
+    print()
+
+def printRightToLeftManner(head):
+    tail = head 
+    while tail.next != None:
+        tail = tail.next 
+ 
+    curr = tail
+    while curr != None:
+        print(curr.data, end = " ")
+        curr = curr.prev 
+    print()
+
+n = int(input())
+l = list(map(int,input().split()))
+pos , m = (map(int,input().split()))
+head = None
+for ele in l:
+    head = addNodeAtTailOfLinkedList(head,ele)
+
+printLeftRight(head)
+printRightToLeftManner(head)
+head = insertAtSpecific(head,pos,m)
+printLeftRight(head)
+printRightToLeftManner(head)
